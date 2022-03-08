@@ -11,7 +11,7 @@ import {
 
 import { HeartIcon as HeartIconFilled } from '@heroicons/react/solid'
 
-interface PostProps {
+type PostProps = {
   id: string
   username: string
   userImg: string
