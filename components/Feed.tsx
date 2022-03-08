@@ -1,16 +1,16 @@
 import React from 'react'
+import Posts from './Posts'
 import Stories from './Stories'
 
 const Feed = () => {
   return (
-    <main className="grid grid-cols-1 md:grid-cols-2 md:max-w-3xl
-    xl:grid-cols-3 xl:max-w-6xl mx-auto bg-red-800">
-      <section className='col-span-2 bg-blue-600'>
-        {/* Stories */}
+    <main
+      className="mx-auto grid grid-cols-1
+    md:max-w-3xl md:grid-cols-2 xl:max-w-6xl xl:grid-cols-3"
+    >
+      <section className="col-span-2">
         <Stories />
-        
-        {/* Posts */}
-
+        <Posts />
       </section>
 
       <section>

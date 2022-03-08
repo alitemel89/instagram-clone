@@ -11,7 +11,7 @@ const Story: FC<StoryProps> = ({ username, image }) => {
       <img
         className="h-14 w-14 transform cursor-pointer rounded-full
       border-2 border-red-500 object-contain
-      p-[1.5px] transition duration-200 hover:scale-110"
+      p-[1.5px] transition duration-200 hover:scale-110 ease-out"
         src={image}
         alt="user-image"
       />

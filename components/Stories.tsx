@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { faker } from '@faker-js/faker'
 import Story from './Story'
 
-
 interface Suggestions {
-    id: number;
-    name: string;
-    username: string;
-    avatar: string;
-    email: string;
+  id: number
+  name: string
+  username: string
+  avatar: string
+  email: string
 }
 
 const Stories = () => {
@@ -24,8 +23,11 @@ const Stories = () => {
   }, [])
 
   return (
-    <div className="flex space-x-2 p-6 bg-white mt-8 border-gray-200
-    border rounded-sm overflow-x-scroll">
+    <div
+      className="mt-8 flex space-x-2 overflow-x-scroll rounded-sm
+    border border-gray-200 bg-white p-6 scrollbar-none
+    scrollbar-thumb-black"
+    >
       {suggestions.map((profile) => (
         <Story
           key={profile.id}
