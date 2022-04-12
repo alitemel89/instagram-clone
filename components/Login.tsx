@@ -6,7 +6,7 @@ const Login = () => {
     <>
       <div className="flex w-full flex-col items-center justify-center">
         <div className="w-full max-w-sm rounded border border-gray-300 bg-white py-10 px-10">
-          <div className="flex justify-center">
+          <div className="mb-4 flex justify-center">
             <Image
               src="https://links.papareact.com/ocw"
               width={256}
