@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+
 
 import {
   HeartIcon,
@@ -76,4 +77,4 @@ const Header = () => {
   )
 }
 
-export default Header;
+export default Header

@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { signInWithGoogle } from '../firebase'
 
 const Login = () => {
   return (
@@ -30,7 +31,7 @@ const Login = () => {
           </div>
           <div>
             <button
-              className="mb-6 w-full rounded bg-blue-200 py-1 px-4 font-bold text-white hover:bg-blue-300"
+              className="mb-6 w-full rounded bg-blue-200 py-1 px-4 font-bold text-white hover:bg-blue-400"
               type="submit"
             >
               Log In
@@ -39,13 +40,14 @@ const Login = () => {
             <p className="text-center text-gray-400">OR</p>
 
             <button
-              className="mt-5 w-full rounded bg-blue-400 py-1 px-4 font-bold text-white hover:bg-blue-300"
+              className="mt-5 w-full rounded bg-blue-400 py-1 px-4 font-bold text-white hover:bg-blue-500"
               type="submit"
+              onClick={() => signInWithGoogle()}
             >
               Sign In With Google
             </button>
 
-            <p className="my-3 text-center text-sm text-blue-700">
+            <p className="mt-5 text-center text-sm text-blue-700">
               Forgot Password?
             </p>
           </div>
