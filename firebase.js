@@ -33,9 +33,6 @@ export const signInWithGoogle = async () => {
             const token = credential.accessToken;
             // The signed-in user info.
             const user = result.user;
-            if (user) {
-                window.location.href = "/";
-            }
             // ...
         }).catch((error) => {
             // Handle Errors here.

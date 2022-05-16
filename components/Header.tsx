@@ -1,18 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-
 import {
   HeartIcon,
   PaperAirplaneIcon,
   PlusCircleIcon,
   SearchIcon,
   UserGroupIcon,
+  LogoutIcon,
+  LoginIcon,
 } from '@heroicons/react/outline'
 
 import { HomeIcon, MenuIcon } from '@heroicons/react/solid'
+import { useAuth } from '../context/AuthContext'
+import Link from 'next/link'
 
 const Header = () => {
+  const { currentUser, logout } = useAuth()
+
+  const [userPhotoUrl, setUserPhotoUrl] = useState<string>(
+    'https://secure.gravatar.com/avatar/d6fd6bff19d7f0ad4024f3811474fe92?s=180&d=mm&r=g'
+  )
+
+  useEffect(() => {
+    if (currentUser != null) {
+      const { photoURL } = currentUser
+      setUserPhotoUrl(photoURL)
+    }
+  }, [currentUser])
+
+  console.log(currentUser)
+
   return (
     <div className="sticky top-0 z-50 border-b bg-white shadow-sm">
       <div className="mx-5 flex max-w-6xl justify-between lg:mx-auto">
@@ -66,11 +84,22 @@ const Header = () => {
           <PlusCircleIcon className="navBtn" />
           <UserGroupIcon className="navBtn" />
           <HeartIcon className="navBtn" />
-          <img
-            src="https://links.papareact.com/3ke"
-            alt="profile pic"
-            className="h-10 cursor-pointer rounded-full"
-          />
+
+          {currentUser ? (
+            <div>
+              <img
+                src={userPhotoUrl}
+                alt="profile pic"
+                className="h-10 cursor-pointer rounded-full"
+              />
+
+              <LogoutIcon onClick={() => logout()} className="navBtn" />
+            </div>
+          ) : (
+            <div>
+              <Link href="/auth/signin">Sign In</Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

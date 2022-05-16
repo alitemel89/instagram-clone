@@ -1,8 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
-import { signInWithGoogle } from '../firebase'
+
+import { useAuth } from '../context/AuthContext'
+import Router from 'next/router'
 
 const Login = () => {
+  const { currentUser, login } = useAuth()
+  console.log(currentUser);
+  
+
+  const handleLogin = () => {
+    login();
+    if (currentUser) {
+      Router.push({ pathname: '/' })
+    }
+    
+  }
+
   return (
     <>
       <div className="flex w-full flex-col items-center justify-center">
@@ -42,7 +56,7 @@ const Login = () => {
             <button
               className="mt-5 w-full rounded bg-blue-400 py-1 px-4 font-bold text-white hover:bg-blue-500"
               type="submit"
-              onClick={() => signInWithGoogle()}
+              onClick={handleLogin}
             >
               Sign In With Google
             </button>

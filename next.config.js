@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
-    domains: ['links.papareact.com']
+    domains: ['links.papareact.com', "secure.gravatar.com"]
   },
 }
