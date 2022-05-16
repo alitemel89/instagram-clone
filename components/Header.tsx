@@ -86,13 +86,12 @@ const Header = () => {
           <HeartIcon className="navBtn" />
 
           {currentUser ? (
-            <div>
+            <div className='flex items-center space-x-4'>
               <img
                 src={userPhotoUrl}
                 alt="profile pic"
                 className="h-10 cursor-pointer rounded-full"
               />
-
               <LogoutIcon onClick={() => logout()} className="navBtn" />
             </div>
           ) : (

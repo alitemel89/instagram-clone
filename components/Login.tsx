@@ -2,7 +2,6 @@ import React from 'react'
 import Image from 'next/image'
 
 import { useAuth } from '../context/AuthContext'
-import Router from 'next/router'
 
 const Login = () => {
   const { currentUser, login } = useAuth()
@@ -11,10 +10,6 @@ const Login = () => {
 
   const handleLogin = () => {
     login();
-    if (currentUser) {
-      Router.push({ pathname: '/' })
-    }
-    
   }
 
   return (

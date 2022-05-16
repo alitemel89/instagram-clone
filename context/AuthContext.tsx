@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import React, {
   createContext,
   ReactNode,
@@ -23,30 +24,35 @@ type Props = {
   children: ReactNode
 }
 
-
 const AuthContext = createContext<authContextType>(authContextDefaultValues)
 
 export function useAuth() {
   return useContext(AuthContext)
 }
 
-
 export function AuthProvider({ children }: Props) {
   const [currentUser, setCurrentUser] = useState<boolean | any>(null)
+  const router = useRouter()
 
   const unsubscribeFromAuth = () => null
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => setCurrentUser(user))
 
-    return () => unsubscribeFromAuth();
+    return () => unsubscribeFromAuth()
   }, [])
 
-  const login = () => {}
+  const login = () => {
+    signInWithGoogle()
+    if (currentUser) {
+      router.push("/")
+    }
+  }
 
   const logout = () => {
     auth.signOut()
     setCurrentUser(false)
+    router.push('/auth/signin')
   }
 
   const value = {
