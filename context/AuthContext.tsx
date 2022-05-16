@@ -39,11 +39,11 @@ export function AuthProvider({ children }: Props) {
   useEffect(() => {
     auth.onAuthStateChanged((user) => setCurrentUser(user))
 
-    return () => unsubscribeFromAuth()
+    return () => unsubscribeFromAuth();
   }, [])
 
-  const login = () => {
-    signInWithGoogle()
+  const login = async () => {
+    await signInWithGoogle();
     if (currentUser) {
       router.push("/")
     }

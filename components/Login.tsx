@@ -4,13 +4,7 @@ import Image from 'next/image'
 import { useAuth } from '../context/AuthContext'
 
 const Login = () => {
-  const { currentUser, login } = useAuth()
-  console.log(currentUser);
-  
-
-  const handleLogin = () => {
-    login();
-  }
+  const { login } = useAuth()
 
   return (
     <>
@@ -51,7 +45,7 @@ const Login = () => {
             <button
               className="mt-5 w-full rounded bg-blue-400 py-1 px-4 font-bold text-white hover:bg-blue-500"
               type="submit"
-              onClick={handleLogin}
+              onClick={() => login()}
             >
               Sign In With Google
             </button>
